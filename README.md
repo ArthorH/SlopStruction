@@ -1,4 +1,4 @@
-# manual2latex
+# SlopStruction
 
 **Turn PDF product manuals into editable, translatable LaTeX — page by page — using a LangGraph pipeline and vision models.**
 
