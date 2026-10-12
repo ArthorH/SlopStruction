@@ -1,0 +1,19 @@
+# Python virtual environment
+manual2latex/.venv/
+__pycache__/
+*.py[cod]
+
+# Pipeline artifacts
+manual2latex/cache/
+manual2latex/out/
+
+# Secrets — never commit API keys
+.env
+*.key
+
+# LaTeX build leftovers
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex.gz

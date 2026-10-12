@@ -1,0 +1,16 @@
+# Which OpenRouter model handles which task. Change freely.
+base_url = "https://openrouter.ai/api/v1"
+
+[tasks.recreate_page]   # vision + translation + LaTeX layout, run per page
+model = "google/gemini-3.8-flash"            # $0.75 / $3.75 per Mtok
+escalate = "anthropic/claude-sonnet-5.5"     # only if a page fails twice
+max_tokens = 45000                            # this model reasons a lot; needs headroom
+reasoning = "low"                             # keep the layout budget for output
+
+[tasks.repair_latex]    # fix a compile error from the log, rare
+model = "anthropic/claude-haiku-5.5"         # $0.10 / $0.50 per Mtok
+escalate = "anthropic/claude-sonnet-5.5"     # on the second repair attempt
+
+[tasks.choose_font]     # once per document
+model = "google/gemini-3.5-flash-lite"       # $0.30 / $2.50 per Mtok
+max_tokens = 300
